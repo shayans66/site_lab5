@@ -31,12 +31,15 @@ export default function TweetInput(props) {
   function handleOnSubmit(){
     // console.log('profile: ', props.userProfile);
 
-    
+    if(text.length <= 140 ){
+      props.addTweet({
+        text: text,
+        handle: props.userProfile.name
+      })
+      setText('')
+    }
 
-    props.addTweet({
-      text: text,
-      handle: props.userProfile.name
-    })
+    
   }
 
   return (
@@ -49,7 +52,8 @@ export default function TweetInput(props) {
         </span>
 
         <textarea name="new-tweet" type="text" placeholder="What's Happening?" 
-        onChange={handleTextChange} onFocus={handleTextClick} onBlur={handleTextBlur} className={expanded}>
+        onChange={handleTextChange} onFocus={handleTextClick} onBlur={handleTextBlur} className={expanded}
+        value={text}>
 
         </textarea>
 
