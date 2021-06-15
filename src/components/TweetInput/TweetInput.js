@@ -5,18 +5,24 @@ export default function TweetInput() {
 
   const [text, setText] = useState('')
 
+  const [expanded, setExpanded] = useState('')
+
   function handleTextChange(e){
-    console.log(e.target.value);
+    // console.log(e.target.value);
 
     setText(e.target.value)
+    
   }
   function handleTextClick(e){
-    e.target.classList = 'expanded'
+    // e.target.classList = 'expanded'
+    // e.target.current.classList.add('expanded')
+    setExpanded('expanded')
   }
   function handleTextBlur(e){
-    // if(! e.target.value){
-    //   e.target.classList
-    // }
+    if(! e.target.value){
+      // e.target.current.classList.remove('expanded')
+      setExpanded('')
+    }
   }
 
   return (
@@ -29,7 +35,7 @@ export default function TweetInput() {
         </span>
 
         <textarea name="new-tweet" type="text" placeholder="What's Happening?" 
-        onChange={handleTextChange} onFocus={handleTextClick} onBlur={handleTextBlur}>
+        onChange={handleTextChange} onFocus={handleTextClick} onBlur={handleTextBlur} className={expanded}>
           
         </textarea>
 
