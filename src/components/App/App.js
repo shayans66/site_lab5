@@ -21,12 +21,17 @@ export default function App({ userProfile = defaultUserProfile }) {
     ])
   }
 
+  let props = {
+    tweets : tweets,
+    addTweet : addTweet
+  }
+
   return (
     <div className="app">
       <Navbar />
       <main className="main">
         <UserProfile profile={defaultUserProfile}/>
-        <Feed />
+        <Feed {...props}/>
         <Advertisements />
       </main>
     </div>
