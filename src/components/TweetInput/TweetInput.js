@@ -1,11 +1,12 @@
 import { useState } from "react"
 import "./TweetInput.css"
 
-export default function TweetInput() {
+export default function TweetInput(props) {
 
   const [text, setText] = useState('')
 
   const [expanded, setExpanded] = useState('')
+  // const [isImage, setIsImage] = useState(true)
 
   function handleTextChange(e){
     // console.log(e.target.value);
@@ -14,13 +15,13 @@ export default function TweetInput() {
     
   }
   function handleTextClick(e){
-    // e.target.classList = 'expanded'
+
     // e.target.current.classList.add('expanded')
     setExpanded('expanded')
   }
   function handleTextBlur(e){
     if(! e.target.value){
-      // e.target.current.classList.remove('expanded')
+      // e.target.classList.remove('expanded')
       setExpanded('')
     }
   }
