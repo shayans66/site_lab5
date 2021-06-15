@@ -6,7 +6,7 @@ export default function TweetInput(props) {
   const [text, setText] = useState('')
 
   const [expanded, setExpanded] = useState('')
-  // const [isImage, setIsImage] = useState(true)
+  const [isImage, setIsImage] = useState(true)
 
   function handleTextChange(e){
     // console.log(e.target.value);
@@ -18,12 +18,14 @@ export default function TweetInput(props) {
 
     // e.target.current.classList.add('expanded')
     setExpanded('expanded')
+    setIsImage(false)
   }
   function handleTextBlur(e){
     if(! e.target.value){
       // e.target.classList.remove('expanded')
       setExpanded('')
     }
+    setIsImage(true)
   }
 
   return (
@@ -40,7 +42,8 @@ export default function TweetInput(props) {
           {text}
         </textarea>
 
-        <i className="fas fa-image"></i>
+        {/* <i className="fas {${isImage} ? 'fa-image' : 'fa-smile'}"></i> */}
+        <i className={`fas ${isImage ? 'fa-image' : 'fa-smile'}`}></i>
       </div>
       <div className=" row tweet-extras">
         <div className="icon-set">
