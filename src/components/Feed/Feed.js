@@ -29,7 +29,10 @@ export default function Feed(props) {
         {/* example first tweet */}
         <Tweet tweet={firstTweet} />
         {/* */}
-        { props.tweets.map((el) => ( <Tweet tweet={el} key={uuidv4()} /> )) }
+        { props.tweets.map((el) => {
+          console.log(el);
+          return ( <Tweet tweet={el} key={uuidv4()} /> )
+        } ) }
       </div>
     </div>
   )

@@ -39,10 +39,10 @@ export default function TweetInput(props) {
 
         <textarea name="new-tweet" type="text" placeholder="What's Happening?" 
         onChange={handleTextChange} onFocus={handleTextClick} onBlur={handleTextBlur} className={expanded}>
-          {text}
+
         </textarea>
 
-        {/* <i className="fas {${isImage} ? 'fa-image' : 'fa-smile'}"></i> */}
+
         <i className={`fas ${isImage ? 'fa-image' : 'fa-smile'}`}></i>
       </div>
       <div className=" row tweet-extras">
@@ -57,7 +57,9 @@ export default function TweetInput(props) {
 
         <div className="submit">
           <i className="fas fa-plus-circle"></i>
-          <button className="submit-button">Tweet</button>
+          <button className="submit-button" onClick={() => {
+            props.addTweet(text)
+          }} >Tweet</button>
         </div>
       </div>
     </div>
