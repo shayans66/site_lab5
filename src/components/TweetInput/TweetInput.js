@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import "./TweetInput.css"
 
 export default function TweetInput(props) {
@@ -8,10 +8,25 @@ export default function TweetInput(props) {
   const [expanded, setExpanded] = useState('')
   const [isImage, setIsImage] = useState(true)
 
+  const [textLength, setTextLength] = useState(140)
+
+  const textLengthNode = useRef()
+
   function handleTextChange(e){
     // console.log(e.target.value);
 
+
     setText(e.target.value)
+    // set remaining text length
+    setTextLength(140 - e.target.value.length)
+    // if negative
+    if(140 - e.target.value.length < 0){
+      console.log('bad');
+      
+      textLengthNode.current.style.color = 'red'
+    } else if( textLengthNode.current.style.color === 'red' ){
+      textLengthNode.current.style.color = 'black'
+    }
     
   }
   function handleTextClick(e){
@@ -68,7 +83,7 @@ export default function TweetInput(props) {
           <i className="fas fa-map-marker-alt"></i>
         </div>
 
-        <span className={`tweet-length`}>&nbsp;</span>
+        <span ref={textLengthNode} className={`tweet-length`}>{textLength}</span>
 
         <div className="submit">
           <i className="fas fa-plus-circle"></i>
