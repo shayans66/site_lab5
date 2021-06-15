@@ -15,9 +15,12 @@ const firstTweet = {
 }
 
 export default function Feed(props) {
+
+  // console.log(props.userProfile);
+
   return (
     <div className="col feed">
-      <TweetInput addTweet={props.addTweet} />
+      <TweetInput addTweet={props.addTweet} userProfile={props.userProfile} />
 
       <div className="see-new-tweets">
         <p>
@@ -27,7 +30,7 @@ export default function Feed(props) {
 
       <div className="twitter-feed">
         {/* example first tweet */}
-        <Tweet tweet={firstTweet} />
+        <Tweet tweet={firstTweet}  />
         {/* */}
         { props.tweets.map((el) => {
           console.log(el);

@@ -28,6 +28,17 @@ export default function TweetInput(props) {
     setIsImage(true)
   }
 
+  function handleOnSubmit(){
+    // console.log('profile: ', props.userProfile);
+
+    
+
+    props.addTweet({
+      text: text,
+      handle: props.userProfile.name
+    })
+  }
+
   return (
     <div className="tweet-container">
       <div className="tweet-box-top row">
@@ -57,9 +68,8 @@ export default function TweetInput(props) {
 
         <div className="submit">
           <i className="fas fa-plus-circle"></i>
-          <button className="submit-button" onClick={() => {
-            props.addTweet(text)
-          }} >Tweet</button>
+          <button className="submit-button" onClick={handleOnSubmit}
+           >Tweet</button>
         </div>
       </div>
     </div>

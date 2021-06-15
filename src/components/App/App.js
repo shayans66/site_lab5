@@ -27,8 +27,10 @@ export default function App({ userProfile = defaultUserProfile }) {
   // }
   let props = {
     tweets : tweets,
-    addTweet : addTweet
+    addTweet : addTweet,
+    userProfile: userProfile
   }
+  // console.log('defprof: ', props);
 
   return (
     <div className="app">
