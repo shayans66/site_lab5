@@ -36,7 +36,7 @@ export default function TweetInput() {
 
         <textarea name="new-tweet" type="text" placeholder="What's Happening?" 
         onChange={handleTextChange} onFocus={handleTextClick} onBlur={handleTextBlur} className={expanded}>
-          
+          {text}
         </textarea>
 
         <i className="fas fa-image"></i>
