@@ -21,6 +21,10 @@ export default function App({ userProfile = defaultUserProfile }) {
     ])
   }
 
+  // let props = {
+  //   tweets,
+  //   addTweet
+  // }
   let props = {
     tweets : tweets,
     addTweet : addTweet
