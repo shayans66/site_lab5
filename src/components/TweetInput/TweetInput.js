@@ -7,7 +7,16 @@ export default function TweetInput() {
 
   function handleTextChange(e){
     console.log(e.target.value);
+
     setText(e.target.value)
+  }
+  function handleTextClick(e){
+    e.target.classList = 'expanded'
+  }
+  function handleTextBlur(e){
+    // if(! e.target.value){
+    //   e.target.classList
+    // }
   }
 
   return (
@@ -19,7 +28,8 @@ export default function TweetInput() {
           </i>
         </span>
 
-        <textarea name="new-tweet" type="text" placeholder="What's Happening?" onChange={handleTextChange}>
+        <textarea name="new-tweet" type="text" placeholder="What's Happening?" 
+        onChange={handleTextChange} onFocus={handleTextClick} onBlur={handleTextBlur}>
           
         </textarea>
 
